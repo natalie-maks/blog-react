@@ -1,5 +1,6 @@
 import PostCard from "@/components/PostCard";
 import { getPosts } from "../services";
+import RecentPosts from "@/components/RecentPosts";
 
 export default function Home({ posts }) {
   return (
@@ -11,6 +12,7 @@ export default function Home({ posts }) {
           return <PostCard post={post.node} key={post.node.title} />;
         })}
       </div>
+      <RecentPosts />
     </main>
   );
 }
