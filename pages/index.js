@@ -1,6 +1,7 @@
 import PostCard from "@/components/PostCard";
 import { getPosts } from "../services";
 import RecentPosts from "@/components/RecentPosts";
+import Categories from "@/components/Categories";
 
 export default function Home({ posts }) {
   return (
@@ -8,11 +9,11 @@ export default function Home({ posts }) {
       <h1>Home page</h1>
       <div>
         {posts.map((post) => {
-          console.log(post.node.title);
           return <PostCard post={post.node} key={post.node.title} />;
         })}
       </div>
-      <RecentPosts />
+      <RecentPosts slug={""} />
+      <Categories />
     </main>
   );
 }
