@@ -12,7 +12,7 @@ export default function Home({ posts }) {
           return <PostCard post={post.node} key={post.node.title} />;
         })}
       </div>
-      <RecentPosts slug={""} />
+      <RecentPosts />
       <Categories />
     </main>
   );
