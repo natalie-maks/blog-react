@@ -15,7 +15,7 @@ const Categories = () => {
       <h3>Categories</h3>
 
       {categories.map((category) => (
-        <Link key={category.slug} href="/">
+        <Link key={category.slug} href={`/${category.slug}`}>
           {category.name}
         </Link>
       ))}

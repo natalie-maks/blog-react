@@ -7,7 +7,7 @@ const PostCard = ({ post }) => {
     <article>
       <img src={post.coverImage.url} className="w-24 h-24" />
       <h3>
-        <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+        <Link href={`/${post.categories[0].slug}/${post.slug}`}>{post.title}</Link>
       </h3>
       <p>{post.excerpt}</p>
 

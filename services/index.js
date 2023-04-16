@@ -6,33 +6,61 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 export const getPosts = async () => {
   const query = gql`
     query MyQuery {
-      postsConnection {
-        edges {
-          node {
-            createdAt
-            slug
-            author {
-              name
-              photo {
-                url
-              }
-            }
-            title
-            excerpt
-            coverImage {
-              url
-            }
-            categories {
-              name
-              slug
-            }
+      posts(first: 100) {
+        createdAt
+        slug
+        author {
+          name
+          photo {
+            url
           }
+        }
+        title
+        excerpt
+        coverImage {
+          url
+        }
+        categories {
+          name
+          slug
         }
       }
     }
   `;
   const result = await request(graphqlAPI, query);
-  return result.postsConnection.edges;
+  return result.posts;
+};
+export const getCategoryPosts = async (categories) => {
+  const query = gql`
+    query GetCategoryPosts($categories: String!) {
+      posts(where: { categories_some: { slug: $categories } }) {
+        createdAt
+        slug
+        author {
+          name
+          photo {
+            url
+          }
+        }
+        title
+        excerpt
+        coverImage {
+          url
+        }
+        comments {
+          name
+          createdAt
+          comment
+        }
+        categories {
+          name
+          slug
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query, { categories });
+  return result.posts;
 };
 
 export const getPostDetails = async (slug) => {
@@ -84,7 +112,11 @@ posts(
   }
   createdAt
   slug
-}
+  categories {
+          name
+          slug
+        }
+}   
   }
   `;
 
@@ -105,6 +137,10 @@ export const getSimilarPosts = async (categories, slug) => {
         }
         createdAt
         slug
+        categories {
+          name
+          slug
+        }
       }
     }
   `;

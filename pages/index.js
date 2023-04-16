@@ -9,7 +9,7 @@ export default function Home({ posts }) {
       <h1>Home page</h1>
       <div>
         {posts.map((post) => {
-          return <PostCard post={post.node} key={post.node.title} />;
+          return <PostCard post={post} key={post.title} />;
         })}
       </div>
       <RecentPosts />

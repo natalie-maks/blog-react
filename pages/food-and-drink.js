@@ -1,7 +1,0 @@
-export default function FoodAndDrink() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>FoodAndDrink</h1>
-    </main>
-  );
-}

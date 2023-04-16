@@ -22,7 +22,7 @@ const RecentPosts = ({ categories, slug }) => {
         <div key={post.title}>
           <img className="h-10 w-10" src={post.coverImage.url} />
           <p>
-            <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+            <Link href={`/${post.categories[0].slug}/${post.slug}`}>{post.title}</Link>
           </p>
           <time>{moment(post.createdAt).format("MMM DD, YYYY")}</time>
         </div>
