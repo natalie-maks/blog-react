@@ -23,8 +23,6 @@ const CommentForm = ({ slug }) => {
       comment: "",
     };
 
-    console.log(initalFormData);
-
     setFormData(initalFormData);
   }, []);
 
@@ -66,10 +64,21 @@ const CommentForm = ({ slug }) => {
     }
 
     submitComment(commentObj).then((res) => {
-      setSuccessMessage(true);
-      setTimeout(() => {
-        setSuccessMessage(false);
-      }, 3000);
+      if (res.createComment) {
+        if (!storeData) {
+          formData.name = "";
+          formData.email = "";
+        }
+        formData.comment = "";
+        setFormData((prevState) => ({
+          ...prevState,
+          ...formData,
+        }));
+        setSuccessMessage(true);
+        setTimeout(() => {
+          setSuccessMessage(false);
+        }, 3000);
+      }
     });
   };
 

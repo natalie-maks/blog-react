@@ -14,7 +14,7 @@ const Post = ({ post }) => {
       <PostDetails post={post} />
       <Author author={post.author} />
       <CommentForm slug={post.slug} />
-      <Comments slug={post.slug} />
+      <Comments comments={post.comments} />
       <RecentPosts slug={post.slug} categories={post.categories.map((category) => category.slug)} />
       <Categories />
     </div>

@@ -59,6 +59,11 @@ export const getPostDetails = async (slug) => {
         content {
           raw
         }
+        comments {
+          name
+          createdAt
+          comment
+        }
       }
     }
   `;

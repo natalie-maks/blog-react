@@ -7,8 +7,6 @@ import { getSimilarPosts, getRecentPosts } from "../services";
 const RecentPosts = ({ categories, slug }) => {
   const [recentPosts, setRecentPosts] = useState([]);
 
-  console.log(slug);
-
   useEffect(() => {
     if (slug) {
       getSimilarPosts(categories, slug).then((result) => setRecentPosts(result));
