@@ -16,10 +16,10 @@ const RecentPosts = ({ categories, slug }) => {
   }, []);
 
   return (
-    <section className="mt-8">
-      <h2 className="border-black border-2 text-center font-semibold  p-2 bg-yellow-300">
+    <section className="mt-8 w-full sm:w-1/2 lg:w-full">
+      <h3 className="border-black border-2 text-center font-semibold mb-2 p-2 bg-yellow-300">
         {slug ? "RELATED POSTS" : "RECENT POSTS"}
-      </h2>
+      </h3>
       {recentPosts.map((post) => (
         <div key={post.title} className="flex space-x-4 items-center my-6">
           <img className="h-14 w-14 object-cover" src={post.coverImage.url} />

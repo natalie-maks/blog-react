@@ -2,8 +2,8 @@ import React from "react";
 
 const Newsletter = () => {
   return (
-    <section className="mt-12">
-      <h3 className="border-black border-2 text-center font-semibold my-2 p-2 bg-yellow-300">
+    <section className="mt-12 w-full sm:w-1/2 lg:w-full">
+      <h3 className="border-black border-2 text-center font-semibold mb-2 p-2 bg-yellow-300">
         NEWSLETTER
       </h3>
       <form className="flex flex-col space-y-3 mt-6">

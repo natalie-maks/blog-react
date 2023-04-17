@@ -9,32 +9,32 @@ import pinterest from "@/public/pinterest-icon.svg";
 
 const SocialMedia = () => {
   return (
-    <section className="mt-12">
-      <h3 className="border-black border-2 text-center font-semibold my-2 p-2 bg-yellow-300">
+    <section className="mt-12 w-full sm:w-1/2 lg:w-full">
+      <h3 className="border-black border-2 text-center font-semibold mb-2 p-2 bg-yellow-300">
         SOCIAL LINKS
       </h3>
       <ul className="flex justify-between mt-6">
-        <li className="mb-1 w-14 h-14 p-3 border-2 border-black hover:bg-yellow-200 transition-all">
+        <li className="mb-1 w-14 h-14 lg:w-11 lg:h-11 xl:w-14 xl:h-14 p-3 border-2 border-black hover:bg-yellow-200 transition-all">
           <a href="https://www.instagram.com/" target="_blank">
             <Image src={insta} />
           </a>
         </li>
-        <li className="mb-1 w-14 h-14 p-3 border-2 border-black hover:bg-yellow-200 transition-all">
+        <li className="mb-1 w-14 h-14 lg:w-11 lg:h-11 xl:w-14 xl:h-14 p-3 border-2 border-black hover:bg-yellow-200 transition-all">
           <a href="https://twitter.com/?lang=en/" target="_blank">
             <Image src={twitter} />
           </a>
         </li>
-        <li className="mb-1 w-14 h-14 p-3 border-2 border-black hover:bg-yellow-200 transition-all">
+        <li className="mb-1 w-14 h-14 lg:w-11 lg:h-11 xl:w-14 xl:h-14 p-3 border-2 border-black hover:bg-yellow-200 transition-all">
           <a href="https://www.facebook.com/" target="_blank">
             <Image src={facebook} />
           </a>
         </li>
-        <li className="mb-1 w-14 h-14 p-3 border-2 border-black hover:bg-yellow-200 transition-all">
+        <li className="mb-1 w-14 h-14 lg:w-11 lg:h-11 xl:w-14 xl:h-14 p-3 border-2 border-black hover:bg-yellow-200 transition-all">
           <a href="https://www.youtube.com/" target="_blank">
             <Image src={youtube} />
           </a>
         </li>
-        <li className="w-14 h-14 p-3 border-2 border-black hover:bg-yellow-200 transition-all">
+        <li className="w-14 h-14 lg:w-11 lg:h-11 xl:w-14 xl:h-14 p-3 border-2 border-black hover:bg-yellow-200 transition-all">
           <a href="https://www.pinterest.com/" target="_blank">
             <Image src={pinterest} />
           </a>
