@@ -4,18 +4,26 @@ import moment from "moment";
 
 const PostCard = ({ post }) => {
   return (
-    <article>
-      <img src={post.coverImage.url} className="w-24 h-24" />
-      <h3>
-        <Link href={`/${post.categories[0].slug}/${post.slug}`}>{post.title}</Link>
-      </h3>
-      <p>{post.excerpt}</p>
+    <article className="flex space-x-8 mb-8 py-6 border-b-2 border-black">
+      <img src={post.coverImage.url} className="w-2/5 h-56 object-cover overflow-hidden" />
 
-      <div>
-        <img src={post.author.photo.url} className="h-12 w-12" />
-        <p>{post.author.name}</p>
+      <div className="flex flex-col justify-between w-3/5">
+        <h3 className="text-xl font-semibold uppercase hover:underline underline-offset-4">
+          <Link href={`/${post.categories[0].slug}/${post.slug}`}>{post.title}</Link>
+        </h3>
+        <p>{post.excerpt}</p>
+
+        <div className="flex justify-between items-end">
+          <time className="block text-right opacity-60 font-semibold uppercase">
+            {moment(post.createdAt).format("MMM DD, YYYY")}
+          </time>
+
+          <div className="flex items-end space-x-4">
+            <p className="opacity-60 font-semibold ">{post.author.name}</p>
+            <img src={post.author.photo.url} className="h-8 w-8 object-cover" />
+          </div>
+        </div>
       </div>
-      <time>{moment(post.createdAt).format("MMM DD, YYYY")}</time>
     </article>
   );
 };

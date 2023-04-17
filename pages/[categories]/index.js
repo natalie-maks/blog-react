@@ -14,8 +14,6 @@ const CategoryPage = ({ posts }) => {
           return <PostCard post={post} key={post.title} />;
         })}
       </div>
-      <RecentPosts />
-      <Categories />
     </div>
   );
 };
