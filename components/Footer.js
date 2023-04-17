@@ -33,19 +33,29 @@ const Footer = () => {
               <p className="font-semibold mb-2">SOCIAL LINKS</p>
               <ul>
                 <li className="mb-1 hover:text-yellow-400 transition-colors">
-                  <Link href="/">Instagram</Link>{" "}
+                  <a href="https://www.instagram.com/" target="_blank">
+                    Instagram
+                  </a>
                 </li>
                 <li className="mb-1 hover:text-yellow-400 transition-colors">
-                  <Link href="/">Twitter</Link>{" "}
+                  <a href="https://twitter.com/?lang=en/" target="_blank">
+                    Twitter
+                  </a>
                 </li>
                 <li className="mb-1 hover:text-yellow-400 transition-colors">
-                  <Link href="/">Facebook</Link>{" "}
+                  <a href="https://www.facebook.com/" target="_blank">
+                    Facebook
+                  </a>
                 </li>
                 <li className="mb-1 hover:text-yellow-400 transition-colors">
-                  <Link href="/">Pinterest</Link>{" "}
+                  <a href="https://www.pinterest.com/" target="_blank">
+                    Pinterest
+                  </a>
                 </li>
-                <li className="hover:text-yellow-400 transition-colors">
-                  <Link href="/">Youtube</Link>{" "}
+                <li className=" hover:text-yellow-400 transition-colors">
+                  <a href="https://www.youtube.com/" target="_blank">
+                    Youtube
+                  </a>
                 </li>
               </ul>
             </div>

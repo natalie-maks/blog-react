@@ -9,7 +9,9 @@ const Nav = () => {
   return (
     <nav className="fixed top-0 h-16 w-full bg-zinc-900  ">
       <div className="container flex items-center justify-between h-full md:px-4 mx-auto">
-        <Image src={logo} alt="logo" className="h-12 w-28 object-scale-down" />
+        <Link href="/">
+          <Image src={logo} alt="logo" className="h-12 w-28 object-scale-down" />
+        </Link>
         <ul
           className={`${clicked ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"} 
           absolute md:relative top-16 md:top-0 w-full py-12 md:py-0 lg:pr-28 flex flex-col md:flex-row items-center justify-end lg:justify-center space-y-6 md:space-y-0 md:space-x-10 text-2xl md:text-lg text-white font-sans font-medium bg-zinc-800 md:bg-inherit transition-all origin-top md:scale-y-100 md:opacity-100`}
