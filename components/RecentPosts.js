@@ -16,15 +16,16 @@ const RecentPosts = ({ categories, slug }) => {
   }, []);
 
   return (
-    <section>
-      <h2>{slug ? "Related Posts" : "Recent Posts"}</h2>
+    <section className="mt-8">
+      <h2 className="border-black border-2 text-center font-semibold  p-2 bg-yellow-300">
+        {slug ? "RELATED POSTS" : "RECENT POSTS"}
+      </h2>
       {recentPosts.map((post) => (
-        <div key={post.title}>
-          <img className="h-10 w-10" src={post.coverImage.url} />
-          <p>
+        <div key={post.title} className="flex space-x-4 items-center my-6">
+          <img className="h-14 w-14 object-cover" src={post.coverImage.url} />
+          <p className="font-sm font-semibold leading-5">
             <Link href={`/${post.categories[0].slug}/${post.slug}`}>{post.title}</Link>
           </p>
-          <time>{moment(post.createdAt).format("MMM DD, YYYY")}</time>
         </div>
       ))}
     </section>

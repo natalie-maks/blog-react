@@ -1,19 +1,15 @@
 import PostCard from "@/components/PostCard";
 import { getPosts } from "../services";
-import RecentPosts from "@/components/RecentPosts";
-import Categories from "@/components/Categories";
 
 export default function Home({ posts }) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="">
       <h1>Home page</h1>
       <div>
         {posts.map((post) => {
           return <PostCard post={post} key={post.title} />;
         })}
       </div>
-      <RecentPosts />
-      <Categories />
     </main>
   );
 }
