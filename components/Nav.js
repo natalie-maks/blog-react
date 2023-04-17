@@ -12,7 +12,7 @@ const Nav = () => {
         <Image src={logo} alt="logo" className="h-12 w-28 object-scale-down" />
         <ul
           className={`${clicked ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"} 
-          absolute md:relative top-16 md:top-0 w-full py-12 md:py-0 lg:pr-28 flex flex-col md:flex-row items-center justify-end lg:justify-center space-y-6 md:space-y-0 md:space-x-10 text-2xl md:text-lg text-white font-sans font-medium bg-zinc-800 md:bg-inherit transition-all origin-top md:scale-y-100`}
+          absolute md:relative top-16 md:top-0 w-full py-12 md:py-0 lg:pr-28 flex flex-col md:flex-row items-center justify-end lg:justify-center space-y-6 md:space-y-0 md:space-x-10 text-2xl md:text-lg text-white font-sans font-medium bg-zinc-800 md:bg-inherit transition-all origin-top md:scale-y-100 md:opacity-100`}
         >
           <li onClick={() => setClicked(false)} className="hover:text-yellow-400 transition-colors">
             <Link href="/things-to-do">Things To Do</Link>
@@ -28,12 +28,12 @@ const Nav = () => {
           </li>
         </ul>
         <button
-          class="absolute right-3 md:hidden z-10 h-6 w-6"
+          className="absolute right-3 md:hidden z-10 h-6 w-6"
           onClick={() => setClicked(!clicked)}
         >
-          <span class="bg-white absolute top-0 left-0 w-6 h-[3px]"></span>
-          <span class="bg-white absolute top-[9px] left-0 w-6 h-[3px]"></span>
-          <span class="bg-white absolute top-[18px] left-0 w-6 h-[3px]"></span>
+          <span className="bg-white absolute top-0 left-0 w-6 h-[3px]"></span>
+          <span className="bg-white absolute top-[9px] left-0 w-6 h-[3px]"></span>
+          <span className="bg-white absolute top-[18px] left-0 w-6 h-[3px]"></span>
         </button>
       </div>
     </nav>
