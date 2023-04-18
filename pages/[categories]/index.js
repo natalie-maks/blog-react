@@ -11,7 +11,7 @@ const CategoryPage = ({ posts, category }) => {
   useEffect(() => {
     getCategories().then((result) => {
       let currCategory = result.find((el) => el.slug === category);
-      setCurrentCategory(currCategory.name);
+      setCurrentCategory(currCategory);
       setDescription(currCategory.description);
       setBanner(currCategory.coverImage.url);
     });
@@ -22,7 +22,7 @@ const CategoryPage = ({ posts, category }) => {
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-12 mt-16 px-4">
         <header className="col-span-1 lg:col-span-12 mt-10 mb-8 text-center relative h-64 overflow-hidden flex items-center justify-center">
           <div className="lg:w-3/5 border-2 border-zinc-900 py-8 px-8 bg-white/70">
-            <h1 className="text-3xl mb-4 uppercase font-semibold ">{currentCategory}</h1>
+            <h1 className="text-3xl mb-4 uppercase font-semibold ">{currentCategory.name}</h1>
             <p className="text-lg">{description}</p>
           </div>
           <img
@@ -37,7 +37,7 @@ const CategoryPage = ({ posts, category }) => {
             })}
           </div>
         </main>
-        <Aside />
+        <Aside categories={currentCategory.slug} />
       </div>
     </>
   );
@@ -46,7 +46,6 @@ const CategoryPage = ({ posts, category }) => {
 export default CategoryPage;
 
 export async function getStaticProps({ params }) {
-  console.log(params);
   const posts = (await getCategoryPosts(params.categories)) || [];
   const category = params.categories;
   return {

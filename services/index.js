@@ -6,7 +6,7 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 export const getPosts = async () => {
   const query = gql`
     query MyQuery {
-      posts(first: 100) {
+      posts(first: 100, orderBy: createdAt_DESC) {
         createdAt
         slug
         author {
@@ -33,7 +33,7 @@ export const getPosts = async () => {
 export const getCategoryPosts = async (categories) => {
   const query = gql`
     query GetCategoryPosts($categories: String!) {
-      posts(where: { categories_some: { slug: $categories } }) {
+      posts(where: { categories_some: { slug: $categories } }, orderBy: createdAt_DESC) {
         createdAt
         slug
         author {
@@ -149,6 +149,27 @@ export const getSimilarPosts = async (categories, slug) => {
   return result.posts;
 };
 
+export const getRecentCategoryPosts = async (categories) => {
+  const query = gql`
+    query GetCategoryPosts($categories: String!) {
+      posts(where: { categories_some: { slug: $categories } }, last: 3) {
+        createdAt
+        slug
+        title
+        coverImage {
+          url
+        }
+        categories {
+          name
+          slug
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query, { categories });
+  return result.posts;
+};
+
 export const getCategories = async () => {
   const query = gql`
     query GetCategories {
@@ -167,7 +188,6 @@ export const getCategories = async () => {
 };
 
 export const submitComment = async (obj) => {
-  console.log(obj);
   const result = await fetch("/api/comments", {
     method: "POST",
     headers: {

@@ -7,16 +7,18 @@ import PostDetails from "@/components/PostDetails";
 import Author from "@/components/Author";
 import Comments from "@/components/Comments";
 import CommentForm from "@/components/CommentForm";
+import Aside from "@/components/Aside";
 
 const Post = ({ post }) => {
   return (
-    <div>
-      <PostDetails post={post} />
-      <Author author={post.author} />
-      <CommentForm slug={post.slug} />
-      <Comments comments={post.comments} />
-      <RecentPosts slug={post.slug} categories={post.categories.map((category) => category.slug)} />
-      <Categories />
+    <div className="container mx-auto grid grid-cols-1 lg:grid-cols-12 mt-16 px-4">
+      <main className="col-span-1 lg:col-span-9 lg:mr-12">
+        <PostDetails post={post} />
+        <Author author={post.author} />
+        <CommentForm slug={post.slug} />
+        <Comments comments={post.comments} />
+      </main>
+      <Aside slug={post.slug} categories={post.categories.map((category) => category.slug)} />
     </div>
   );
 };

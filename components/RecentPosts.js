@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import moment from "moment";
 
-import { getSimilarPosts, getRecentPosts } from "../services";
+import { getSimilarPosts, getRecentPosts, getRecentCategoryPosts } from "../services";
 
 const RecentPosts = ({ categories, slug }) => {
   const [recentPosts, setRecentPosts] = useState([]);
 
   useEffect(() => {
-    if (slug) {
+    if (slug && categories) {
       getSimilarPosts(categories, slug).then((result) => setRecentPosts(result));
+    } else if (categories) {
+      getRecentCategoryPosts(categories).then((result) => setRecentPosts(result));
     } else {
       getRecentPosts().then((result) => setRecentPosts(result));
     }
-  }, []);
+  }, [categories, slug]);
 
   return (
     <section className="mt-8 w-full sm:w-1/2 lg:w-full">
