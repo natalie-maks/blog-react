@@ -72,7 +72,7 @@ const Footer = () => {
                 placeholder="Email address"
               />
 
-              <button className="bg-white text-black py-2 px-4 font-semibold hover:bg-yellow-400">
+              <button className="bg-white text-black py-2 px-4 font-semibold hover:bg-yellow-200">
                 SIGN UP
               </button>
             </form>

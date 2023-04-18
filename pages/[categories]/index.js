@@ -6,23 +6,29 @@ import { getCategories, getCategoryPosts } from "@/services";
 const CategoryPage = ({ posts, category }) => {
   const [currentCategory, setCurrentCategory] = useState("");
   const [description, setDescription] = useState("");
+  const [banner, setBanner] = useState("");
 
   useEffect(() => {
     getCategories().then((result) => {
       let currCategory = result.find((el) => el.slug === category);
       setCurrentCategory(currCategory.name);
       setDescription(currCategory.description);
+      setBanner(currCategory.coverImage.url);
     });
   }, [category]);
 
   return (
     <>
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-12 mt-16 px-4">
-        <header className="col-span-1 lg:col-span-12  mt-10 mb-12 border-2 border-zinc-900 p-2 text-center">
-          <div className="py-10 border-[3px] border-yellow-300 px-4">
-            <h1 className="mb-4 text-3xl uppercase font-semibold">{currentCategory}</h1>
+        <header className="col-span-1 lg:col-span-12 mt-10 mb-8 text-center relative h-64 overflow-hidden flex items-center justify-center">
+          <div className="lg:w-3/5 border-2 border-zinc-900 py-8 px-8 bg-white/70">
+            <h1 className="text-3xl mb-4 uppercase font-semibold ">{currentCategory}</h1>
             <p className="text-lg">{description}</p>
           </div>
+          <img
+            src={banner}
+            className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-[-1] opacity-80"
+          />
         </header>
         <main className="col-span-1 lg:col-span-9 lg:mr-12">
           <div>
