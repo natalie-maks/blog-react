@@ -17,7 +17,7 @@ const RecentPosts = ({ categories, slug }) => {
 
   return (
     <section className="mt-8 w-full sm:w-1/2 lg:w-full">
-      <h3 className="border-black border-2 text-center font-semibold mb-2 p-2 bg-yellow-300">
+      <h3 className="border-zinc-900 border-2 text-center font-semibold mb-2 p-2 bg-yellow-300">
         {slug ? "RELATED POSTS" : "RECENT POSTS"}
       </h3>
       {recentPosts.map((post) => (

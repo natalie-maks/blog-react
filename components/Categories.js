@@ -12,12 +12,12 @@ const Categories = () => {
 
   return (
     <section className="mt-8 w-full sm:w-1/2 lg:w-full">
-      <h3 className="border-black border-2 text-center font-semibold mb-2 p-2 bg-yellow-300">
+      <h3 className="border-zinc-900 border-2 text-center font-semibold mb-2 p-2 bg-yellow-300">
         CATEGORIES
       </h3>
       <ul className="mt-6">
         {categories.map((category) => (
-          <li className="my-4 text-lg text-center font-semibold p-1 hover:bg-yellow-200 border-b-[1px] border-transparent	 hover:border-black">
+          <li className="my-4 text-lg text-center font-semibold p-1 hover:bg-yellow-200 border-b-[1px] border-transparent	hover:border-zinc-900">
             <Link className=" w-full" key={category.slug} href={`/${category.slug}`}>
               {category.name}
             </Link>

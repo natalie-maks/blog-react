@@ -156,6 +156,9 @@ export const getCategories = async () => {
         name
         slug
         description
+        coverImage {
+          url
+        }
       }
     }
   `;

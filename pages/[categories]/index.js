@@ -18,8 +18,8 @@ const CategoryPage = ({ posts, category }) => {
   return (
     <>
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-12 mt-16 px-4">
-        <header className="col-span-12  mt-10 mb-12 border-2 border-black p-2 text-center">
-          <div className="py-10 border-[3px] border-yellow-300">
+        <header className="col-span-1 lg:col-span-12  mt-10 mb-12 border-2 border-zinc-900 p-2 text-center">
+          <div className="py-10 border-[3px] border-yellow-300 px-4">
             <h1 className="mb-4 text-3xl uppercase font-semibold">{currentCategory}</h1>
             <p className="text-lg">{description}</p>
           </div>
