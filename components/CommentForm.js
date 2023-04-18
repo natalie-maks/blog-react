@@ -41,7 +41,8 @@ const CommentForm = ({ slug }) => {
     }
   };
 
-  const handleCommentSubmit = () => {
+  const handleCommentSubmit = (e) => {
+    e.preventDefault();
     setError(false);
     const { name, email, comment, storeData } = formData;
     if (!name || !email || !comment) {
@@ -83,40 +84,63 @@ const CommentForm = ({ slug }) => {
   };
 
   return (
-    <div>
-      CommentForm
-      <textarea
-        value={formData.comment}
-        onChange={onInputChange}
-        placeholder="Comment"
-        name="comment"
-      />
-      <input
-        value={formData.name}
-        onChange={onInputChange}
-        type="text"
-        placeholder="Name"
-        name="name"
-      />
-      <input
-        value={formData.email}
-        onChange={onInputChange}
-        type="email"
-        placeholder="Email"
-        name="email"
-      />
-      {error && <p>All fields are requiered</p>}
-      <label htmlFor="storeData">Save email and name</label>
-      <input
-        value={formData.storeData}
-        onChange={onInputChange}
-        type="checkbox"
-        id="storeData"
-        name="storeData"
-      />
-      <button onClick={handleCommentSubmit}>Submit</button>
-      {successMessage && <span>Comment submitted for review</span>}
-    </div>
+    <section className="my-8">
+      <h2 className="text-2xl font-semibold mb-4">Leave a comment</h2>
+      <form onSubmit={handleCommentSubmit}>
+        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+          <input
+            className="border-2 border-zinc-900 block w-full p-2"
+            value={formData.name}
+            onChange={onInputChange}
+            type="text"
+            placeholder="Name"
+            name="name"
+          />
+          <input
+            className="border-2 border-zinc-900 block w-full p-2"
+            value={formData.email}
+            onChange={onInputChange}
+            type="email"
+            placeholder="Email"
+            name="email"
+          />
+        </div>
+
+        <textarea
+          className="border-2 border-zinc-900 block w-full p-2 my-4"
+          value={formData.comment}
+          onChange={onInputChange}
+          placeholder="Comment"
+          name="comment"
+        />
+
+        <div>
+          <input
+            value={formData.storeData}
+            onChange={onInputChange}
+            type="checkbox"
+            id="storeData"
+            name="storeData"
+          />
+          <label className="pl-2" htmlFor="storeData">
+            Save email and name
+          </label>
+        </div>
+        <div className="flex flex-col md:flex-row md:space-x-4 items-center">
+          <button className="my-4 w-full md:w-auto bg-zinc-900 text-white text-lg border-zinc-900 border-2 py-3 px-16 font-semibold hover:bg-yellow-200 hover:text-black transition-all">
+            Submit
+          </button>
+          {successMessage && (
+            <span className="text-lime-600 text-lg font-semibold my-2">
+              Comment submitted for review
+            </span>
+          )}
+          {error && (
+            <p className="text-red-600 text-lg font-semibold my-2">All fields are requiered</p>
+          )}
+        </div>
+      </form>
+    </section>
   );
 };
 
