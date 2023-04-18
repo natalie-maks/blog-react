@@ -13,10 +13,14 @@ const PostDetails = ({ post }) => {
 
     switch (type) {
       case "heading-two":
-        return <h3 key={index}>{modifiedText}</h3>;
+        return (
+          <h3 key={index} className="text-lg font-semibold my-2">
+            {modifiedText}
+          </h3>
+        );
       case "paragraph":
         return (
-          <p key={index}>
+          <p key={index} className="font-serif text-lg my-1">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -28,11 +32,14 @@ const PostDetails = ({ post }) => {
   };
 
   return (
-    <div>
-      PostDetails
-      <img src={post.coverImage.url} className="w-80" />
-      <time>{moment(post.createdAt).format("MMM DD, YYYY")}</time>
-      <h1>{post.title}</h1>
+    <section className="my-8">
+      <img src={post.coverImage.url} className="h-72 w-full object-cover" />
+      <address className="opacity-60 not-italic	my-2">
+        Written by {post.author.name} <time>{moment(post.createdAt).format("MMM DD, YYYY")}</time>
+      </address>
+      <h1 className="text-3xl font-semibold my-4">{post.title}</h1>
+      <p className="italic text-lg mb-8"> {post.excerpt}</p>
+
       {post.content.raw.children.map((typeObj, index) => {
         const children = typeObj.children.map((item, itemIndex) =>
           formatPostContent(itemIndex, item.text, item)
@@ -40,7 +47,7 @@ const PostDetails = ({ post }) => {
 
         return formatPostContent(index, children, typeObj, typeObj.type);
       })}
-    </div>
+    </section>
   );
 };
 
