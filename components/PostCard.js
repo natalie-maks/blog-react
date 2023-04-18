@@ -4,7 +4,7 @@ import moment from "moment";
 
 const PostCard = ({ post }) => {
   return (
-    <article className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-8 mb-8 py-6 border-b-2 border-black">
+    <article className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-8 py-10 border-b-2 border-black">
       <img src={post.coverImage.url} className="md:w-2/5 h-56 object-cover overflow-hidden" />
 
       <div className="flex flex-col space-y-4 md:space-y-0 justify-between md:w-3/5">
