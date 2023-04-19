@@ -10,22 +10,50 @@ const PostDetails = ({ post }) => {
       if (obj.bold) {
         modifiedText = <b key={index}>{text}</b>;
       }
+
+      if (obj.italic) {
+        modifiedText = <em key={index}>{text}</em>;
+      }
+
+      if (obj.underline) {
+        modifiedText = <u key={index}>{text}</u>;
+      }
     }
 
     switch (type) {
       case "heading-two":
         return (
-          <h3 key={index} className="text-lg font-semibold my-2">
+          <h3 key={index} className="text-lg font-semibold my-4">
             {modifiedText}
           </h3>
         );
+      case "heading-three":
+        return (
+          <h3 key={index} className="text-xl font-semibold my-3">
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </h3>
+        );
+      case "heading-four":
+        return (
+          <h4 key={index} className="text-lg font-semibold my-2">
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </h4>
+        );
       case "paragraph":
         return (
-          <p key={index} className="font-serif text-lg my-1">
+          <p key={index} className="font-serif text-md my-1">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
           </p>
+        );
+      case "image":
+        return (
+          <img key={index} alt={obj.title} height={obj.height} width={obj.width} src={obj.src} />
         );
       default:
         return modifiedText;
