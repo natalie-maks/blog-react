@@ -6,15 +6,18 @@ const Footer = () => {
   return (
     <footer className="bg-zinc-900 text-white pt-4 px-4 mt-20">
       <div className="container lg:w-4/5 mx-auto">
-        <Image src={logo} alt="logo" className="h-16 w-28 object-scale-down" />
+        <Image
+          src={logo}
+          alt="logo"
+          width="100"
+          height="50"
+          className="h-16 w-28 object-scale-down"
+        />
         <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 justify-between mt-8 mb-12">
           <div className="flex md:w-1/2">
             <div className="w-1/2">
               <p className="font-semibold mb-2">CATEGORIES</p>
               <ul>
-                <li className="mb-1 hover:text-yellow-400 transition-colors">
-                  <Link href="/">Home page</Link>
-                </li>
                 <li className="mb-1 hover:text-yellow-400 transition-colors">
                   <Link href="/things-to-do">Things To Do</Link>
                 </li>
@@ -24,8 +27,11 @@ const Footer = () => {
                 <li className="mb-1 hover:text-yellow-400 transition-colors">
                   <Link href="/attractions">Attractions</Link>
                 </li>
-                <li className="hover:text-yellow-400 transition-colors">
+                <li className="mb-1 hover:text-yellow-400 transition-colors">
                   <Link href="/art-and-culture">Art&Culture</Link>
+                </li>
+                <li className="hover:text-yellow-400 transition-colors">
+                  <Link href="/">All</Link>
                 </li>
               </ul>
             </div>
@@ -60,7 +66,6 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-
           <div className="md:w-1/2">
             <p className="font-semibold mb-2">SIGN UP</p>
             <p>Sign up to our newletter to stay up to date with latest news and publications</p>
@@ -80,14 +85,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row justify-around items-center py-4 border-t-2 border-white">
+      <div className="flex justify-center items-center py-4 border-t-2 border-white">
         <p>Copyright &copy; 2023, All Rights Reserved</p>
-        <div className="mt-4 lg:mt-0">
-          <Link href="/" className="mr-8">
-            Term&Conditions
-          </Link>
-          <Link href="/">Privacy Policy</Link>
-        </div>
       </div>
     </footer>
   );
