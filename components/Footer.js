@@ -89,6 +89,7 @@ const Footer = () => {
                 type="email"
                 name="email"
                 placeholder="Email address"
+                required
               />
 
               <button className="bg-white text-black py-2 px-4 font-semibold hover:bg-yellow-200">

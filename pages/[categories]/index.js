@@ -27,6 +27,9 @@ const CategoryPage = ({ posts, category }) => {
           </div>
           <img
             src={banner}
+            alt={currentCategory.name}
+            height="200"
+            width="300"
             className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-[-1] opacity-80"
           />
         </header>

@@ -7,7 +7,13 @@ const Author = ({ author }) => {
         <h2 className="italic font-semibold opacity-80 mb-1">Written by</h2>
         <p className="font-semibold text-lg">{author.name}</p>
       </div>
-      <img width="100" height="100" src={author.photo.url} className="w-16 h-16 object-cover" />
+      <img
+        width="100"
+        height="100"
+        src={author.photo.url}
+        alt={author.name}
+        className="w-16 h-16 object-cover"
+      />
     </section>
   );
 };

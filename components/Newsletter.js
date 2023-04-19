@@ -23,6 +23,7 @@ const Newsletter = () => {
           type="email"
           name="email"
           placeholder="Email address"
+          required
         />
 
         <button className="bg-zinc-900 text-white border-zinc-900 border-2 py-2 px-4 font-semibold hover:bg-yellow-200 hover:text-black transition-all">

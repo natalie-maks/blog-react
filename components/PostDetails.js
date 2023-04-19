@@ -33,7 +33,13 @@ const PostDetails = ({ post }) => {
 
   return (
     <section className="my-8">
-      <img src={post.coverImage.url} className="h-72 w-full object-cover" />
+      <img
+        src={post.coverImage.url}
+        width="100"
+        height="100"
+        alt={post.title}
+        className="h-72 w-full object-cover"
+      />
       <address className="opacity-60 not-italic	my-2">
         Written by {post.author.name} <time>{moment(post.createdAt).format("MMM DD, YYYY")}</time>
       </address>
