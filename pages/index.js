@@ -15,7 +15,7 @@ export default function Home({ posts }) {
 
   return (
     <div className="container mx-auto grid grid-cols-1 lg:grid-cols-12 mt-16 px-4">
-      <header className="col-span-1 lg:col-span-12 mt-10 mb-8 text-center relative h-64 overflow-hidden flex items-center justify-center">
+      <header className="w-full col-span-1 lg:col-span-12 mt-10 mb-8 text-center relative min-h-[256px] p-4 overflow-hidden flex items-center justify-center">
         <h1 className="text-3xl uppercase font-semibold border-2 border-zinc-900 py-4 px-8 bg-white/30">
           Welcome to Chicago
         </h1>
@@ -24,7 +24,7 @@ export default function Home({ posts }) {
           alt="Welcome to Chicago"
           height="200"
           width="300"
-          className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-[-1] opacity-80"
+          className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-[-1] opacity-80 h-auto w-auto min-w-full min-h-full"
         />
       </header>
       <div className="col-span-1 lg:col-span-12 mb-12 border-t-2 border-zinc-900 pt-8 text-center flex space-x-8 overflow-x-auto">
