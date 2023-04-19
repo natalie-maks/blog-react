@@ -23,7 +23,13 @@ const RecentPosts = ({ categories, slug }) => {
       </h3>
       {recentPosts.map((post) => (
         <div key={post.title} className="flex space-x-4 items-center my-6">
-          <img className="h-14 w-14 object-cover" src={post.coverImage.url} />
+          <img
+            className="h-14 w-14 object-cover"
+            src={post.coverImage.url}
+            alt={post.title}
+            width="50"
+            height="50"
+          />
           <p className="font-sm font-semibold leading-5">
             <Link href={`/${post.categories[0].slug}/${post.slug}`}>{post.title}</Link>
           </p>

@@ -1,8 +1,19 @@
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/logo-white.png";
 
 const Footer = () => {
+  const [successMessage, setSuccessMessage] = useState(false);
+
+  const handleSignUpSubmit = (e) => {
+    e.preventDefault();
+    setSuccessMessage(true);
+    setTimeout(() => {
+      setSuccessMessage(false);
+    }, 4000);
+    e.target.reset();
+  };
   return (
     <footer className="bg-zinc-900 text-white pt-4 px-4 mt-20">
       <div className="container lg:w-4/5 mx-auto">
@@ -69,7 +80,10 @@ const Footer = () => {
           <div className="md:w-1/2">
             <p className="font-semibold mb-2">SIGN UP</p>
             <p>Sign up to our newletter to stay up to date with latest news and publications</p>
-            <form className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mt-4">
+            <form
+              className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mt-4"
+              onSubmit={handleSignUpSubmit}
+            >
               <input
                 className="border-white border-2 p-2 bg-transparent"
                 type="email"
@@ -81,6 +95,9 @@ const Footer = () => {
                 SIGN UP
               </button>
             </form>
+            {successMessage && (
+              <p className="pt-1 font-semibold">You subscribed to our newsletter!</p>
+            )}
           </div>
         </div>
       </div>
