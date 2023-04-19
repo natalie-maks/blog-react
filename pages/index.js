@@ -31,14 +31,12 @@ export default function Home({ posts }) {
         {categories.map((category) => (
           <Link
             key={category.slug}
-            className="min-w-[288px] h-36 flex-none overflow-hidden relative flex items-center justify-center group"
+            className="min-w-[288px] h-36 grow overflow-hidden relative flex items-center justify-center group"
             href={`/${category.slug}`}
           >
             <img
               src={category.coverImage.url}
               alt={category.name}
-              height="200"
-              width="300"
               className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-[-1] opacity-80 group-hover:opacity-100"
             />
             <p className="uppercase text-lg font-semibold bg-yellow-300 py-2 px-4">

@@ -9,7 +9,7 @@ const Nav = () => {
   return (
     <nav className="fixed top-0 z-10 h-16 w-full bg-zinc-900  ">
       <div className="md:container flex items-center justify-between h-full md:px-4 mx-auto">
-        <Link href="/">
+        <Link href="/" aria-label="Main page">
           <Image
             src={logo}
             alt="logo"
