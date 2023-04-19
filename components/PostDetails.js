@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import Link from "next/link";
 
 const PostDetails = ({ post }) => {
   const formatPostContent = (index, text, obj, type) => {
@@ -40,10 +41,20 @@ const PostDetails = ({ post }) => {
         alt={post.title}
         className="h-72 w-full object-cover"
       />
-      <address className="opacity-60 not-italic	my-2">
+      <address className="opacity-60 not-italic	mt-2 mb-3 text-sm">
         Written by {post.author.name} <time>{moment(post.createdAt).format("MMM DD, YYYY")}</time>
       </address>
-      <h1 className="text-3xl font-semibold my-4">{post.title}</h1>
+      <ul className="flex space-x-2">
+        {post.categories.map((category) => {
+          return (
+            <li key={category.slug} className="bg-yellow-300 py-1 px-4 text-sm">
+              <Link href={`/${category.slug}`}>{category.name}</Link>
+            </li>
+          );
+        })}
+      </ul>
+
+      <h1 className="text-3xl font-semibold mt-6 mb-4">{post.title}</h1>
       <p className="italic text-lg mb-8"> {post.excerpt}</p>
 
       {post.content.raw.children.map((typeObj, index) => {
