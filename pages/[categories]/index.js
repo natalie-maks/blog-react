@@ -67,6 +67,6 @@ export async function getStaticPaths() {
 
       return `/${categories}`;
     }),
-    fallback: true,
+    fallback: false,
   };
 }
