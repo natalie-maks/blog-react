@@ -10,7 +10,7 @@ const PostCard = ({ post }) => {
         alt={post.title}
         height="200"
         width="300"
-        className="md:w-2/5 h-56 object-cover overflow-hidden"
+        className="w-full md:w-2/5 h-56 object-cover overflow-hidden"
       />
 
       <div className="flex flex-col space-y-4 md:space-y-0 justify-between md:w-3/5">
