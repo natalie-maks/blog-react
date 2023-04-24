@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import PostCard from "@/components/PostCard";
 import Aside from "@/components/Aside";
 import Meta from "@/components/Meta";
+import Loader from "@/components/Loader";
 import { getCategories, getCategoryPosts } from "@/services";
 
 const CategoryPage = ({ posts, category }) => {
   const [currentCategory, setCurrentCategory] = useState("");
   const [description, setDescription] = useState("");
   const [banner, setBanner] = useState("");
+  const router = useRouter();
+  if (router.isFallback) {
+    return <Loader />;
+  }
 
   useEffect(() => {
     getCategories().then((result) => {
@@ -67,6 +73,6 @@ export async function getStaticPaths() {
 
       return `/${categories}`;
     }),
-    fallback: false,
+    fallback: true,
   };
 }
