@@ -11,9 +11,6 @@ const CategoryPage = ({ posts, category }) => {
   const [description, setDescription] = useState("");
   const [banner, setBanner] = useState("");
   const router = useRouter();
-  if (router.isFallback) {
-    return <Loader />;
-  }
 
   useEffect(() => {
     getCategories().then((result) => {
@@ -23,6 +20,10 @@ const CategoryPage = ({ posts, category }) => {
       setBanner(currCategory.coverImage.url);
     });
   }, [category]);
+
+  if (router.isFallback) {
+    return <Loader />;
+  }
 
   return (
     <>
