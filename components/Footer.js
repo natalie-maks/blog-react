@@ -89,6 +89,7 @@ const Footer = () => {
                 type="email"
                 name="email"
                 placeholder="Email address"
+                autoComplete="off"
                 required
               />
 
